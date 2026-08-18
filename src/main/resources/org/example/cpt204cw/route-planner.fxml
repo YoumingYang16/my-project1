@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.cpt204cw.RoutePlannerController"
+            stylesheets="@route-planner.css">
+
+    <left>
+        <VBox spacing="15" styleClass="control-panel" prefWidth="280">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <VBox spacing="10">
+                <Label text="Start Point:" styleClass="label-title"/>
+                <ComboBox fx:id="startPointCombo" prefWidth="250"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <Label text="End Point:" styleClass="label-title"/>
+                <ComboBox fx:id="endPointCombo" prefWidth="250"/>
+            </VBox>
+
+            <VBox spacing="10">
+                <Label text="Algorithm:" styleClass="label-title"/>
+                <ComboBox fx:id="algorithmCombo" prefWidth="250"/>
+            </VBox>
+
+            <Button text="RUN" onAction="#onRunButtonClick"
+                    styleClass="run-button" prefWidth="250"/>
+        </VBox>
+    </left>
+
+    <center>
+        <BorderPane>
+            <center>
+                <StackPane styleClass="map-container">
+                    <Canvas fx:id="mapCanvas" width="550" height="550"/>
+                </StackPane>
+            </center>
+            <bottom>
+                <VBox spacing="5" styleClass="runtime-panel">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Runtime Information:" styleClass="label-title"/>
+                    <TextArea fx:id="runtimeInfoArea" wrapText="true" editable="false"
+                              prefHeight="170"/>
+                </VBox>
+            </bottom>
+        </BorderPane>
+    </center>
+
+    <right>
+        <VBox spacing="10" styleClass="points-panel" prefWidth="280">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Intermediate Point:" styleClass="label-title"/>
+
+            <ListView fx:id="pointsList" VBox.vgrow="ALWAYS" prefHeight="500"/>
+
+            <HBox spacing="10">
+                <Button text="Select All" onAction="#onSelectAllButtonClick"
+                        styleClass="select-all-button" HBox.hgrow="ALWAYS"/>
+                <Button text="Clear All" onAction="#onClearAllButtonClick"
+                        styleClass="clear-all-button" HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+    </right>
+
+</BorderPane>
