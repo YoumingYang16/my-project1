@@ -15,7 +15,7 @@ This repository contains a CPT204 coursework project implemented in Java. It com
 .
 |-- data/                         # CSV data used by the application
 |-- src/main/java/                # Java source code
-|   `-- org/example/cpt204cw/
+|   `-- org/example/cw/
 |       |-- Run.java              # JavaFX application entry point
 |       |-- RoutePlannerController.java
 |       |-- TaskASortingBenchmark.java
